@@ -90,7 +90,7 @@ git reset [file]
 Revert your repository to a previous known working state.
 
 ```sh
-git commit -m"descriptive message"
+git commit -m"descriptive message	"
 ```
 Create a new commit from changes added to the staging area.
 The commit must have a message!
@@ -115,11 +115,59 @@ git stash drop
 ```
 Delete a specific stash from all your previous stashes. 
 
+
 ## Git branching model
+```sh
+git branch [-a]
+```
+List all local branches in repository. With -a: show all branches (with remote).
+
+```sh
+git branch [branch_name]
+```
+Create new branch, referencing the current HEAD.
+
+```sh 
+git checkout [-b][branch_name]
+```
+Switch working directory to the specified branch. With -b: Git will create the specified branch if it does not exist.
+
+```sh
+git merge [from name]
+```
+Join specified [from name] branch into your current branch (the one you are on currently).
+
+```sh
+git branch -d [name]
+```
+Remove selected branch, if it is already merged into any other. -D instead of -d forces deletion.
 
 
 ## Git review your work
+```sh 
+git log [-n count]
+```
+List commit history of current branch. -n count limits list to last n commits
 
+```sh
+git log --oneline --graph --decorate
+```
+An overview with reference labels and history graph. One commit per line.
+
+```sh
+git log ref ..
+```
+List commits that are present on the current branch and not merged into ref. A ref can be a branch name or a tag name.
+
+```sh 
+git log ..ref
+```
+List commit that are present on ref and not merged into current branch.
+
+```sh 
+git reflog
+```
+List operations (e.g. checkouts or commits) made on local repository.
 
 ## Git tagging commits
 
