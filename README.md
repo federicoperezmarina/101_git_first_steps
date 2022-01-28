@@ -170,13 +170,70 @@ git reflog
 List operations (e.g. checkouts or commits) made on local repository.
 
 ## Git tagging commits
+```sh
+git tag 
+```
+List all tags
+
+```sh
+git tag [name] [commit sha]
+```
+Create a tag reference named name for current commit. Add commit sha to tag a specific commit instead of current one.
+
+```sh
+git tag -a [name] [commit sha]
+```
+Create a tag object named name for current commit.
+
+```sh
+git tag -d [name]
+```
+Remove a tag from local repository.
 
 
 ## Git reverting changes
+```sh
+git reset [--hard] [target reference]
+```
+Switches the current branch to the target reference, leaving a difference as an uncommitted change. When --hard is used, all changes are discarded.
 
+```sh
+git revert [commit sha]
+```
+Create a new commit, reverting changes from the specified commit. It generates an inversion of changes.
 
 ## Git synchronizing respositories
+```sh
+git fetch [remote]
+```
+Fetch changes from the remote, but not update tracking branches.
+
+```sh
+git fetch --prune [remote]
+```
+Delete remote Refs that were removed from the remote repository.
+
+```sh 
+git pull [remote]
+```
+Fetch changes from the remote and merge current branch with its upstream.
+
+```sh
+git push [--tags] [remote]
+```
+Push local changes to the remote. Use --tags to push tags.
+
+```sh
+git push -u [remote][branch]
+```
+Push local branch to remote repository. Set its copy as an upstream.
 
 
 ## .gitignore
-
+```sh
+/logs/*
+!logs/.gitkeep
+/tmp
+*.swp
+```
+Verify the .gitignore file exists in your project and ignore certain type of files, such as all files in logs directory (excluding the .gitkeep file), whole tmp directory and all files *.swp. File ignoring will work for the directory (and children directories) where .gitignore file is placed.
